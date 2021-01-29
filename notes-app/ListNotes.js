@@ -1,6 +1,7 @@
 const fs = require('fs')
 const chalk = require('chalk')
 
+// Get all the notes
 const getNotes = function () {
     const notes = loadNotes()
 
@@ -11,6 +12,7 @@ const getNotes = function () {
     })
 }
 
+// Load all the notes
 const loadNotes = () => {
     try {
         const dataBuffer = fs.readFileSync('notes.json')
@@ -21,6 +23,7 @@ const loadNotes = () => {
     }
 }
 
+// Export the functions to the main file(app.js)
 module.exports = {
     getNotes: getNotes,
 }
