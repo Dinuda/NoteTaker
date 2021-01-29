@@ -1,7 +1,7 @@
 const fs = require('fs')
 const chalk = require('chalk')
 
-
+// remove the note using th title
 const removeNote = function (title) {
     const notes = loadNotes()
     const notesToKeep = notes.filter(function (note) {
@@ -16,11 +16,13 @@ const removeNote = function (title) {
     }
 }
 
+// Save the notes 
 const saveNotes = function (notes) {
     const dataJSON = JSON.stringify(notes)
     fs.writeFileSync('notes.json', dataJSON)
 }
 
+// Load all the notes
 const loadNotes = function () {
     try {
         const dataBuffer = fs.readFileSync('notes.json')
@@ -31,6 +33,7 @@ const loadNotes = function () {
     }
 }
 
+// Export the functions to the main file(app.js)
 module.exports = {
     removeNote: removeNote
 }
