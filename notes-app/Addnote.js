@@ -6,6 +6,7 @@ const getNotes = function () {
     return "Your notes ..."
 }
 
+// Add a note
 const addNote = function (title, body) {
     const notes = loadNotes()
     const duplicateNotes = notes.filter(function (note) {
@@ -25,11 +26,13 @@ const addNote = function (title, body) {
 
 }
 
+// Save Notes
 const saveNotes = function (notes) {
     const dataJSON = JSON.stringify(notes)
     fs.writeFileSync('notes.json', dataJSON)
 }
 
+// Load all the notes
 const loadNotes = function () {
     try {
         const dataBuffer = fs.readFileSync('notes.json')
@@ -40,6 +43,7 @@ const loadNotes = function () {
     }
 }
 
+// Export the functions to the main file(app.js)
 module.exports = {
     getNotes: getNotes,
     addNote: addNote
