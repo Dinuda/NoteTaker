@@ -1,7 +1,7 @@
 const fs = require('fs')
 const chalk = require('chalk')
 
-// remove the note using th title
+// Remove the note using th title
 const removeNote = function (title) {
     const notes = loadNotes()
     const notesToKeep = notes.filter(function (note) {
