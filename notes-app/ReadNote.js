@@ -1,6 +1,7 @@
 const fs = require('fs')
 const chalk = require('chalk')
 
+// Load all the notes
 const loadNotes = () => {
     try {
         const dataBuffer = fs.readFileSync('notes.json')
@@ -11,6 +12,7 @@ const loadNotes = () => {
     }
 }
 
+// Read the note asked by user using the title
 const readNote = (title) => {
     const notes = loadNotes()
     const note = notes.find((note) => note.title === title)
@@ -23,6 +25,7 @@ const readNote = (title) => {
     }
 }
 
+// Export the functions to the main file(app.js)
 module.exports = {
     readNote: readNote
 }
